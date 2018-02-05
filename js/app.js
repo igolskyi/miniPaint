@@ -20,6 +20,11 @@ class App {
     this.canvas.addEventListener('mouseup', this.handleCanvasMouseup.bind(this));
     this.canvas.addEventListener('mouseleave', this.handleCanvasMouseleave.bind(this));
 
+    this.addEventListener("touchstart", handleCanvasMousedown.bind(this), false);
+    this.addEventListener("touchend", this.handleCanvasMouseup.bind(this), false);
+    this.addEventListener("touchcancel", this.handleCanvasMouseleave.bind(this), false);
+    this.addEventListener("touchmove", this.handleCanvasMousemove.bind(this), false);
+
     this.colorPicker.onAdd = (color) => {
       this.colorPalette.addColor(color);
     };
